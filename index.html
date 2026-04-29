@@ -1,1361 +1,162 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trucha Arcoíris — Infografía Interactiva</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+margin:0;
+padding:0;
+background:#f4fbfa;
+color:#1f2d3d;
+line-height:1.6;
+}
+
+header{
+background:#005F73;
+color:white;
+padding:40px 20px;
+text-align:center;
+}
+
+header h1{
+margin:0;
+font-size:2rem;
+}
+
+header p{
+margin-top:10px;
+font-size:1rem;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-top:0;
+color:#005F73;
+}
+
+.highlight{
+background:#0A9396;
+color:white;
+padding:30px;
+border-radius:15px;
+margin:40px 0;
+text-align:center;
+}
+
+footer{
+background:#0B2027;
+color:white;
+padding:30px 20px;
+font-size:0.9rem;
+}
+
+footer a{
+color:#94D2BD;
+text-decoration:none;
+}
+</style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="es"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Trucha Arcoíris — Infografía Interactiva&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;400;500;700;900&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>VARIABLES Y RESET</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--primary: #005F73;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--primary-dark: #003D4A;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--secondary: #0A9396;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent: #94D2BD;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent-light: #D4F0E8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg: #F0F7F4;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg-card: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--fg: #0B1D1A;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--fg-muted: #3A5A54;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--border: #C8E0D8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--shadow-sm: 0 2px 8px rgba(0,95,115,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--shadow-md: 0 8px 30px rgba(0,95,115,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--shadow-lg: 0 16px 50px rgba(0,95,115,0.18);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--shadow-hover: 0 20px 60px rgba(0,95,115,0.22);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--radius: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--radius-sm: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>*, *::before, *::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>html {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'DM Sans', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--fg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>-webkit-font-smoothing: antialiased;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>FONDO ATMOSFÉRICO</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bg-atmosphere {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%; height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bg-blob {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filter: blur(100px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.15;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: blobFloat 20s ease-in-out infinite alternate;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bg-blob:nth-child(1) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 500px; height: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--secondary);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: -10%; left: -10%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation-delay: 0s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bg-blob:nth-child(2) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 400px; height: 400px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 40%; right: -8%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation-delay: -7s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation-duration: 25s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bg-blob:nth-child(3) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 350px; height: 350px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--primary);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>bottom: -5%; left: 30%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation-delay: -12s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation-duration: 22s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes blobFloat {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: translate(0, 0) scale(1); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>33% { transform: translate(30px, -40px) scale(1.05); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>66% { transform: translate(-20px, 20px) scale(0.95); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translate(15px, -15px) scale(1.02); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>CONTENEDOR PRINCIPAL</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>ONDAS DECORATIVAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wave-divider {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: -2px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wave-divider svg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>HEADER</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 40%, var(--secondary) 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px 0 80px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0; bottom: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 20% 80%, rgba(148,210,189,0.15) 0%, transparent 50%),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 80% 20%, rgba(10,147,150,0.2) 0%, transparent 50%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Partículas flotantes en el header */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header-particles {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0; bottom: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.particle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 4px; height: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(148,210,189,0.4);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: particleRise linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes particleRise {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: translateY(100%) translateX(0); opacity: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>10% { opacity: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>90% { opacity: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header-badge {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(148,210,189,0.18);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(148,210,189,0.3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 6px 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeSlideDown 0.8s ease-out both;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(1.9rem, 5vw, 3.2rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.15;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeSlideDown 0.8s 0.15s ease-out both;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header h1 span {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header h1 span::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>bottom: 2px; left: 0; right: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.5;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(0.95rem, 2.2vw, 1.15rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.75);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 400;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeSlideDown 0.8s 0.3s ease-out both;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.intro-text {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(0.82rem, 1.8vw, 0.95rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.6);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.75;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 640px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeSlideDown 0.8s 0.45s ease-out both;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeSlideDown {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(-20px); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>SECCIÓN DE INDICADORES</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-title-block {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px 0 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2.5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--secondary);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(1.5rem, 3.5vw, 2.2rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-dark);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-line {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--secondary), var(--accent));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>GRID DE TARJETAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cards-grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 560px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.cards-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>gap: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 900px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.cards-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(4, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>gap: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>TARJETA INDIVIDUAL</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--bg-card);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 28px 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow-sm);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: default;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>/* Animación de entrada */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(30px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card.visible {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow var(--transition), border-color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-6px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow-hover);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Barra superior decorativa */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Fondo decorativo sutil */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>bottom: -30px; right: -30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100px; height: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--accent-light);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.5;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filter: drop-shadow(0 2px 4px rgba(0,95,115,0.15));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card:hover .card-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.15) rotate(-5deg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.72rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 1.5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--secondary);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-value {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(1.6rem, 3vw, 2rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-dark);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.2;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-value .unit {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'DM Sans', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--fg-muted);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card-desc {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.82rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--fg-muted);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.55;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Tarjetas destacadas (primera y quinta) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(160deg, var(--primary-dark), var(--primary));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured .card-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured .card-value {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured .card-value .unit {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.6);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured .card-desc {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.7);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--accent), rgba(148,210,189,0.3));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(148,210,189,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.3;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 60px rgba(0,61,74,0.35);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card--featured:hover::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.5;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>SECCIÓN RAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 60%, var(--secondary) 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-section::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: -50%; right: -20%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 600px; height: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle, rgba(148,210,189,0.08) 0%, transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-inner {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-header .section-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-header .section-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-header .section-line {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--accent), rgba(148,210,189,0.3));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-header p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.65);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 16px auto 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.7;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Diagrama de flujo RAS */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-diagram {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.ras-diagram {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: row;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>gap: 0;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.07);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(148,210,189,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--radius-sm);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-width: 140px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 180px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition), background var(--transition), border-color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(0.85);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step.visible {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.5s ease-out, transform 0.5s ease-out, background var(--transition), border-color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.05);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.6rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-step-detail {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.55);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.4;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-arrow {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 767px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.ras-arrow {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: rotate(90deg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Estadísticas RAS */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stats {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 560px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.ras-stats {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(3, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stat-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.06);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(148,210,189,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--radius-sm);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 24px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(8px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition), background var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(20px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stat-card.visible {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.5s ease-out, transform 0.5s ease-out, background var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stat-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-3px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stat-number {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(1.8rem, 4vw, 2.5rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 6px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-stat-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.78rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.6);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Barra de progreso animada */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-progress-wrap {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-progress-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.6);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-progress-bar {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-progress-fill {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 0%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--accent), #E0F5EE);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.ras-progress-fill::after {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0; bottom: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: shimmer 2s infinite;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes shimmer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: translateX(-100%); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translateX(100%); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>SECCIÓN CONCLUSIONES</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusions-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusions-grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 560px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.conclusions-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 900px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.conclusions-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(3, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--bg-card);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 28px 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow-sm);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition), box-shadow var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(25px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-card.visible {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-4px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow-md);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-num {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 3rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-light);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-card:hover .conclusion-num {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-dark);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conclusion-text {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.82rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--fg-muted);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.65;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>FOOTER</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--primary-dark);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--secondary), var(--primary));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-ref-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.65rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-ref {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.5);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.7;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-ref a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(148,210,189,0.3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: border-color var(--transition);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-ref a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-divider {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(148,210,189,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 16px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-credit {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255,255,255,0.65);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-credit span {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>ANIMACIONES DE ENTRADA REDUCIDAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (prefers-reduced-motion: reduce) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>*, *::before, *::after {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>animation-duration: 0.01ms !important;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>animation-iteration-count: 1 !important;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transition-duration: 0.01ms !important;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.card, .conclusion-card, .ras-step, .ras-stat-card {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>SCROLL INDICADOR</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.scroll-indicator {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 0%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.1s linear;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>BOTÓN VOLVER ARRIBA</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-to-top {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>bottom: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>right: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 44px; height: 44px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--primary);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: var(--shadow-md);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(20px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.3s, transform 0.3s, background 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 999;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-to-top.show {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-to-top:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--secondary);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-to-top:focus-visible {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>outline: 2px solid var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>outline-offset: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Barra de progreso de scroll --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="scroll-indicator" id="scrollIndicator" aria-hidden="true"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Fondo atmosférico --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bg-atmosphere" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-blob"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-blob"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-blob"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ═══════════ HEADER ═══════════ --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header-particles" id="headerParticles" aria-hidden="true"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="header-badge"&gt;Infografia Interactiva&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Crianza, cuidado y calidad del agua en la &lt;span&gt;trucha arcoiris&lt;/span&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="subtitle"&gt;Analisis estadistico aplicado a la produccion acuicola sostenible&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="intro-text"&gt;La trucha arcoiris (Oncorhynchus mykiss) requiere condiciones ambientales especificas para garantizar su crecimiento, supervivencia y rentabilidad productiva. Esta infografia presenta los principales indicadores cientificos que optimizan su cultivo.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Onda de transición --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wave-divider" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;svg viewBox="0 0 1440 60" preserveAspectRatio="none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;path fill="#F0F7F4" d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,35 1440,30 L1440,60 L0,60 Z"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ═══════════ SECCIÓN INDICADORES ═══════════ --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section aria-label="Indicadores clave de producción"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title-block"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-label"&gt;Indicadores Clave&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="section-title"&gt;Datos estadisticos de referencia&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-line"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="cards-grid" id="cardsGrid"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 1 — Destacada --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card card--featured" data-delay="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;🐟&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Tolerancia termica&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;0 – 27 &lt;span class="unit"&gt;°C&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Rango de temperatura en el que la especie puede sobrevivir, aunque el crecimiento eficiente requiere rangos mas estrechos.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 2 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="80"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;🌡️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Temperatura optima&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;9 – 14 &lt;span class="unit"&gt;°C&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Rango ideal para maximizar el crecimiento y garantizar exito en los procesos de desove.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 3 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="160"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;⚖️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Conversion alimenticia&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;0.8:1 &lt;span class="unit"&gt;FCR&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Con dietas de alta energia se alcanza esta conversion excepcional, indicador clave de eficiencia productiva.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 4 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="240"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;🌱&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Produccion de huevos&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;2,000 &lt;span class="unit"&gt;huevos/kg&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Potencial reproductivo por kilogramo de peso de hembra, determinante para la planificacion del ciclo productivo.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 5 — Destacada --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card card--featured" data-delay="320"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;💧&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Ahorro de agua RAS&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;95 – 99 &lt;span class="unit"&gt;%&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Los sistemas de recirculacion acuicola reducen drasticamente el consumo de agua frente a los metodos tradicionales.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 6 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="400"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;🍽️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Proteina recomendada&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;35 – 45 &lt;span class="unit"&gt;%&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Nivel de proteina en la dieta para sostener tasas de crecimiento optimas y una buena salud del pez.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 7 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="480"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;💓&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Perdidas por enfermedades&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;50 &lt;span class="unit"&gt;%&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Proporcion de la produccion acuicola global afectada por patologias, subrayando la importancia del manejo sanitario.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Tarjeta 8 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="card" data-delay="560"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-icon" aria-hidden="true"&gt;⏱️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-label"&gt;Tiempo de engorde&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-value"&gt;9 &lt;span class="unit"&gt;meses&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="card-desc"&gt;Periodo necesario para alcanzar la talla comercial de 30 a 40 cm bajo condiciones controladas de cultivo.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Onda de transición a RAS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="wave-divider" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 1440 60" preserveAspectRatio="none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;path fill="#003D4A" d="M0,20 C240,55 480,5 720,30 C960,55 1200,10 1440,25 L1440,60 L0,60 Z"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ═══════════ SECCIÓN RAS ═══════════ --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="ras-section" aria-label="Sistemas de recirculación acuícola"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="ras-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="ras-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-label"&gt;Tecnologia Sostenible&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="section-title"&gt;Sistemas de Recirculacion Acuicola (RAS)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-line"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Los sistemas RAS representan una revolucion en la acuicultura, permitiendo el control preciso del ambiente acuatico y reduciendo drasticamente el impacto ambiental.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Diagrama de flujo --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="ras-diagram" id="rasDiagram"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;🐟&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Tanque de cultivo&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Densidad controlada de truchas&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-arrow" aria-hidden="true"&gt;&amp;#10142;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;⚙️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Filtracion mecanica&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Remocion de solidos en suspension&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-arrow" aria-hidden="true"&gt;&amp;#10142;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;🦠&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Biofiltro&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Conversion de amonio a nitrato&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-arrow" aria-hidden="true"&gt;&amp;#10142;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;🫧&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Desgasificacion&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Eliminacion de CO2 y gases disueltos&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-arrow" aria-hidden="true"&gt;&amp;#10142;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="400"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;❄️&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Termoregulacion&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Mantenimiento a 9–14 °C&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-arrow" aria-hidden="true"&gt;&amp;#10142;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-step" data-delay="500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="ras-step-icon" aria-hidden="true"&gt;🔄&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-name"&gt;Recirculacion&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-step-detail"&gt;Retorno al tanque de cultivo&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Estadísticas RAS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="ras-stats" id="rasStats"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-stat-card" data-delay="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-number" data-count="97" data-suffix="%"&gt;0%&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-label"&gt;Ahorro promedio de agua&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-stat-card" data-delay="150"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-number" data-count="3" data-suffix="x"&gt;0x&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-label"&gt;Mayor densidad que sistemas abiertos&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-stat-card" data-delay="300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-number" data-count="90" data-suffix="%"&gt;0%&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-stat-label"&gt;Reduccion de efluentes contaminantes&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Barra de progreso --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="ras-progress-wrap" id="rasProgress"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-progress-label"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;Agua reciclada vs. sistema tradicional&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span id="rasProgressValue"&gt;0%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="ras-progress-bar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="ras-progress-fill" id="rasProgressFill"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Onda de salida RAS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="wave-divider" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 1440 60" preserveAspectRatio="none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;path fill="#F0F7F4" d="M0,35 C360,5 720,55 1080,20 C1260,8 1380,28 1440,20 L1440,60 L0,60 Z"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ═══════════ CONCLUSIONES ═══════════ --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="conclusions-section" aria-label="Conclusiones"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title-block"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-label"&gt;Sintesis&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="section-title"&gt;Conclusiones clave&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="section-line"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="conclusions-grid" id="conclusionsGrid"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;01&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Control termico es determinante&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;Mantener la temperatura entre 9 y 14 °C no solo optimiza el crecimiento, sino que reduce el estres metabolico y la susceptibilidad a enfermedades.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;02&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Eficiencia alimentaria como ventaja competitiva&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;Un FCR de 0.8:1 posiciona a la trucha arcoiris como una de las especies mas eficientes en conversion de alimento, reduciendo costos y huella ambiental.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;03&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Los RAS son el futuro de la acuicultura&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;Con ahorros de hasta 99% en agua y reduccion significativa de efluentes, los sistemas de recirculacion ofrecen un modelo sostenible y escalable.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;04&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Sanidad preventiva es inversion&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;Con el 50% de la produccion mundial afectada por patologias, los programas de prevencion y monitoreo sanitario son tan criticos como la nutricion.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="400"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;05&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Proteina dietaria requiere precision&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;El rango de 35–45% de proteina debe ajustarse segun la fase de crecimiento para maximizar la eficiencia sin incrementar costos innecesariamente.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="conclusion-card" data-delay="500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="conclusion-num"&gt;06&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="conclusion-title"&gt;Ciclo productivo predecible&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="conclusion-text"&gt;Nueve meses hasta talla comercial permiten una planificacion financiera clara, facilitando la integracion de la truchicultura en cadenas de valor estables.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ═══════════ FOOTER ═══════════ --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-ref-label"&gt;Referencia bibliografica&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="footer-ref"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Stanford Open Virtual Assistant Lab. (s.f.). Practical manual for rainbow trout farming, care and water quality [Documento generado por STORM]. Recuperado de &lt;a href="https://storm.genie.stanford.edu/article/1571195" target="_blank" rel="noopener noreferrer"&gt;https://storm.genie.stanford.edu/article/1571195&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-divider"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="footer-credit"&gt;Disenado por &lt;span&gt;Andrea Vidarte&lt;/span&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Botón volver arriba --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-to-top" id="backToTop" aria-label="Volver al inicio"&gt;&amp;#8593;&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>PARTÍCULAS DEL HEADER</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function crearParticulas() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var contenedor = document.getElementById('headerParticles');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!contenedor) return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var cantidad = 18;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>for (var i = 0; i &lt; cantidad; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>var p = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.className = 'particle';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.left = (Math.random() * 100) + '%';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.width = (2 + Math.random() * 4) + 'px';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.height = p.style.width;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.animationDuration = (8 + Math.random() * 14) + 's';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.animationDelay = (Math.random() * 10) + 's';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>p.style.opacity = (0.2 + Math.random() * 0.4).toString();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>contenedor.appendChild(p);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>INTERSECTION OBSERVER — Animaciones de entrada</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function initScrollAnimations() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var todosLosElementos = document.querySelectorAll('.card, .conclusion-card, .ras-step, .ras-stat-card');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Verificar si el usuario prefiere movimiento reducido</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var prefiereReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (prefiereReducido) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Mostrar todo inmediatamente</p>
-<p class="p1"><span class="Apple-converted-space">                </span>todosLosElementos.forEach(function(el) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>el.classList.add('visible');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var observer = new IntersectionObserver(function(entries) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>entries.forEach(function(entry) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (entry.isIntersecting) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var delay = parseInt(entry.target.getAttribute('data-delay')) || 0;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>setTimeout(function() {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>entry.target.classList.add('visible');</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}, delay);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>observer.unobserve(entry.target);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>threshold: 0.15,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>rootMargin: '0px 0px -40px 0px'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>todosLosElementos.forEach(function(el) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>observer.observe(el);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>BARRA DE PROGRESO RAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function initRASProgress() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var fill = document.getElementById('rasProgressFill');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var valueLabel = document.getElementById('rasProgressValue');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var progressWrap = document.getElementById('rasProgress');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!fill || !progressWrap) return;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var animado = false;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var observer = new IntersectionObserver(function(entries) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (entries[0].isIntersecting &amp;&amp; !animado) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>animado = true;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>// Animar de 0% a 97%</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>var objetivo = 97;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>var actual = 0;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>var duracion = 1500;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>var inicio = performance.now();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>function animar(tiempo) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var elapsed = tiempo - inicio;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var progreso = Math.min(elapsed / duracion, 1);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>// Easing suave</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var eased = 1 - Math.pow(1 - progreso, 3);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>actual = Math.round(eased * objetivo);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>fill.style.width = actual + '%';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>valueLabel.textContent = actual + '%';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if (progreso &lt; 1) {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>requestAnimationFrame(animar);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>requestAnimationFrame(animar);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>observer.unobserve(progressWrap);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, { threshold: 0.3 });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>observer.observe(progressWrap);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>CONTADORES ANIMADOS EN ESTADÍSTICAS RAS</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function initContadores() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var contadores = document.querySelectorAll('.ras-stat-number[data-count]');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!contadores.length) return;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var observer = new IntersectionObserver(function(entries) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>entries.forEach(function(entry) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (entry.isIntersecting) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var el = entry.target;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var objetivo = parseInt(el.getAttribute('data-count'));</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var sufijo = el.getAttribute('data-suffix') || '';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var duracion = 1200;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var inicio = performance.now();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>function animar(tiempo) {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>var elapsed = tiempo - inicio;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>var progreso = Math.min(elapsed / duracion, 1);</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>var eased = 1 - Math.pow(1 - progreso, 3);</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>var valor = Math.round(eased * objetivo);</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>el.textContent = valor + sufijo;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>if (progreso &lt; 1) {</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>requestAnimationFrame(animar);</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>requestAnimationFrame(animar);</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>observer.unobserve(el);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, { threshold: 0.5 });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>contadores.forEach(function(c) { observer.observe(c); });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>BARRA DE SCROLL SUPERIOR</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function initScrollIndicator() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var bar = document.getElementById('scrollIndicator');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!bar) return;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var ticking = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.addEventListener('scroll', function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (!ticking) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>requestAnimationFrame(function() {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var scrollTop = window.pageYOffset || document.documentElement.scrollTop;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var docHeight = document.documentElement.scrollHeight - window.innerHeight;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>var porcentaje = docHeight &gt; 0 ? (scrollTop / docHeight) * 100 : 0;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>bar.style.width = porcentaje + '%';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>ticking = false;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>ticking = true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, { passive: true });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ═══════════════════════════════════════</p>
-<p class="p1"><span class="Apple-converted-space">           </span>BOTÓN VOLVER ARRIBA</p>
-<p class="p1"><span class="Apple-converted-space">        </span>═══════════════════════════════════════ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(function initBackToTop() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>var btn = document.getElementById('backToTop');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!btn) return;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>var ticking = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.addEventListener('scroll', function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (!ticking) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>requestAnimationFrame(function() {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if (window.pageYOffset &gt; 500) {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>btn.classList.add('show');</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>btn.classList.remove('show');</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>ticking = false;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>ticking = true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, { passive: true });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>btn.addEventListener('click', function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>})();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<header>
+<h1>Crianza, cuidado y calidad del agua en la trucha arcoíris</h1>
+<p>Análisis estadístico aplicado a la producción acuícola sostenible</p>
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<h3>🐟 Tolerancia térmica</h3>
+<p><strong>0–27 °C</strong></p>
+<p>Rango de temperatura en el que la especie puede sobrevivir.</p>
+</div>
+
+<div class="card">
+<h3>🌡️ Temperatura óptima</h3>
+<p><strong>9–14 °C</strong></p>
+<p>Rango ideal para crecimiento y reproducción.</p>
+</div>
+
+<div class="card">
+<h3>⚖️ Conversión alimenticia</h3>
+<p><strong>0.8 : 1</strong></p>
+<p>Alta eficiencia en conversión de alimento a biomasa.</p>
+</div>
+
+<div class="card">
+<h3>🌱 Producción de huevos</h3>
+<p><strong>Hasta 2000 huevos/kg</strong></p>
+<p>Capacidad reproductiva de la hembra.</p>
+</div>
+
+<div class="card">
+<h3>💧 Ahorro de agua RAS</h3>
+<p><strong>95–99%</strong></p>
+<p>Reducción del uso de agua con sistemas de recirculación.</p>
+</div>
+
+<div class="card">
+<h3>🍽️ Proteína en alimentación</h3>
+<p><strong>35–45%</strong></p>
+<p>Porcentaje recomendado para un crecimiento adecuado.</p>
+</div>
+
+<div class="card">
+<h3>💓 Enfermedades</h3>
+<p><strong>50%</strong></p>
+<p>La mitad de la producción acuícola mundial se ve afectada.</p>
+</div>
+
+<div class="card">
+<h3>⏱️ Tiempo de engorde</h3>
+<p><strong>9 meses</strong></p>
+<p>Tiempo promedio para alcanzar talla comercial.</p>
+</div>
+
+</div>
+
+<div class="highlight">
+<h2>♻️ Sistemas RAS</h2>
+<p>Los sistemas de recirculación acuícola permiten mayor control ambiental, sostenibilidad y producción continua durante todo el año.</p>
+</div>
+
+</div>
+
+<footer>
+<p><strong>Fuente:</strong> Stanford Open Virtual Assistant Lab. (s.f.). <em>Practical manual for rainbow trout farming, care and water quality</em>.</p>
+
+<p><strong>Diseñado por:</strong> Andrea Vidarte</p>
+</footer>
+
 </body>
 </html>
